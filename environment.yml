@@ -1,0 +1,33 @@
+name: cmc
+channels:
+  - conda-forge
+dependencies:
+  - aiohttp
+  - bottleneck
+  - ipyleaflet
+  - ipykernel
+  - ipywidgets
+  - jq
+  - pip
+  - pip:
+    - copernicus-marine-client
+  - python
+  - zarr
+  - rioxarray
+  - r-base
+  - r-tidyverse
+  - r-raster
+  - r-ncdf4
+  - r-rgdal
+  - r-ggplot2
+  - r-lubridate
+  - r-sf
+  - r-leaflet
+  - r-terra
+  - r-rastervis
+  - r-rnaturalearthdata
+  - r-rnaturalearth
+  - r-codetools
+  - r-httr
+  - r-ncmeta
+  - r-tidync
