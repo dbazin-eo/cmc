@@ -1,0 +1,5 @@
+#!/bin/bash
+
+wget -q -O qualif.zip https://atlas.mercator-ocean.fr/s/GQ5P8tYJFyy2wcE/download
+unzip qualif.zip
+rm -rf qualif.zip
