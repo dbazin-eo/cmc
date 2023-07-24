@@ -1,8 +1,10 @@
-name: cmc-light
+name: cmc
 channels:
   - conda-forge
 dependencies:
   - pip
   - pip:
     - copernicus-marine-client
-  - python
+    - hvplot
+    - ipykernel
+    - speedtest-cli
