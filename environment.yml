@@ -7,4 +7,5 @@ dependencies:
     - copernicus-marine-client
     - hvplot
     - ipykernel
+    - fire
     - speedtest-cli
