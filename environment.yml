@@ -16,6 +16,7 @@ dependencies:
     - jello
     - jtbl
     - jellex
+    - asciinema
   - ipython
   - ipykernel
   - fire
