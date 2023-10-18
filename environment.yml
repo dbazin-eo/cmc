@@ -1,8 +1,22 @@
 name: cmc
 channels:
   - conda-forge
+  - dnachun
 dependencies:
+  - cartopy
+  - cmocean
+  - datashader
+  - geoviews
+  - hvplot
+  - ipython
+  - ipykernel
+  - nodejs
+  - panel
   - pip
-  - python>=3.9
   - pip:
-    - copernicus-marine-client
+     - copernicus-marine-client
+  - pyproj
+  - rasterio
+  - rioxarray
+  - speedtest-cli
+  - python>=3.9,<3.12
