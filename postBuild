@@ -1,5 +1,5 @@
 #!/bin/bash
 
-wget -q -O demo.zip https://atlas.mercator-ocean.fr/s/P8ErjWLdeikdjq3/download
+wget -q -O demo.zip https://atlas.mercator-ocean.fr/s/jQgNaBCdjnMmPHJ/download
 unzip demo.zip
 rm -rf demo.zip
