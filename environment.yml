@@ -15,6 +15,7 @@ dependencies:
   - pip
   - pip:
      - copernicus-marine-client
+     - session-info
   - pyproj
   - rasterio
   - rioxarray
