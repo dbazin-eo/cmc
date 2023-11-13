@@ -1,0 +1,46 @@
+# set up
+copernicus-marine --version
+python -m pip install copernicus_marine_client --upgrade --quiet
+copernicus-marine -V
+
+# check help
+copernicus-marine --help
+
+# check subset help and generate template
+copernicus-marine subset -h
+copernicus-marine subset --create-template
+cat subset_template.json
+
+# discover more details about the dataset
+copernicus-marine describe --contains cmems_mod_glo_phy_anfc_0.083deg_P1D-m
+copernicus-marine describe --contains cmems_mod_glo_phy_anfc_0.083deg_P1D-m --include-datasets > metadata__GLOBAL_ANALYSISFORECAST_PHY_001_024__cmems_mod_glo_phy_anfc_0.083deg_P1D-m.json
+
+# search timerange using /"time"
+fx metadata__GLOBAL_ANALYSISFORECAST_PHY_001_024__cmems_mod_glo_phy_anfc_0.083deg_P1D-m.json
+
+# copy end_value and perform a subset
+copernicus-marine subset --request-file subset_template.json --end-datetime "2023-10-27"
+
+# use the login command to avoid having to enter each time credentials
+copernicus-marine login
+
+# perform a new subset to showcase difference between motu and new service
+# first: duplicate and edit the json query
+Lon -6 -5
+Lat 50 51
+
+copernicus-marine subset --request-file subset_glo12_dailymean_20210101-20231027.json
+
+# second: by surcharging the json query with a mix of long and short options
+copernicus-marine subset --request-file subset_template.json --end-datetime "2023-10-27T12:00:00" -t 2021-01-01 -x -6 -X -5 -y 50 -Y 51 --variable sob -v zos -v tob -o copernicusmarine_data -f local_netcdf_by_marinedatastore.nc
+
+# third: by writing a query from scratch 
+copernicus-marine subset --motu-api-request "python -m motuclient --motu https://nrt.cmems-du.eu/motu-web/Motu --service-id GLOBAL_ANALYSISFORECAST_PHY_001_024-TDS --product-id cmems_mod_glo_phy_anfc_0.083deg_P1D-m --longitude-min -6 --longitude-max -5 --latitude-min 50 --latitude-max 51 --date-min 2021-01-01T00:00:00 --date-max 2023-10-27T23:59:59 --variable zos --out-dir <OUTPUT_DIRECTORY> --out-name <OUTPUT_FILENAME> --user <USERNAME> --pwd <PASSWORD>" --output-directory copernicusmarine_data --output-filename local_netcdf_by_marinedatastore.nc
+
+
+storm arwen 27 November 2021: https://data.marine.copernicus.eu/-/bmbadr73hq
+
+storm eunice 20 February 2022: https://data.marine.copernicus.eu/-/l07ajtrth8
+
+
+
