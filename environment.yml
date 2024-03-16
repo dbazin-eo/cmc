@@ -1,11 +1,13 @@
-name: cmc
+name: cmt
 channels:
   - conda-forge
   - dnachun
 dependencies:
   - cartopy
   - cmocean
+  - copernicusmarine
   - datashader
+  - fire
   - fx
   - geoviews
   - hvplot
@@ -14,11 +16,9 @@ dependencies:
   - nodejs
   - panel
   - pip
-  - pip:
-     - copernicus-marine-client
-     - session-info
   - pyproj
   - rasterio
   - rioxarray
+  - session-info
   - speedtest-cli
-  - python>=3.9,<3.12
+  - python<3.13
